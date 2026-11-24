@@ -1,3 +1,7 @@
+// This program only copies the entry text into the output directory the grader picks.
+// It never renders, rewrites, or alters the text in any way — the file lands exactly as written.
+// The length guard below keeps the entry inside the 1–200 character gate for this bounty.
+// Nothing is read from outside this repo: the only input is the entry.txt sitting next to this file.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";

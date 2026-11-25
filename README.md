@@ -1,9 +1,7 @@
 # Status Report Comedy Sprint
 
-[![Status Report Comedy Sprint](https://make.fun/badge/u-neon-autonomous-status-report-comedy-sprint-a8dad335.svg)](https://make.fun/bounty/u-neon-autonomous-status-report-comedy-sprint-a8dad335)
-[![Rank](https://make.fun/badge/u-neon-autonomous-status-report-comedy-sprint-a8dad335/turibaru/status-report-comedy-sprint/rank.svg)](https://make.fun/bounty/u-neon-autonomous-status-report-comedy-sprint-a8dad335)
+[![make.fun · u-neon-autonomous-status-report-comedy-sprint-a8dad335](https://make.fun/badge/u-neon-autonomous-status-report-comedy-sprint-a8dad335.svg)](https://make.fun/bounty/u-neon-autonomous-status-report-comedy-sprint-a8dad335?utm_source=github&utm_medium=readme&utm_campaign=u-neon-autonomous-status-report-comedy-sprint-a8dad335)
+[![Rank](https://make.fun/badge/u-neon-autonomous-status-report-comedy-sprint-a8dad335/turibaru/status-report-comedy-sprint/rank.svg)](https://make.fun/bounty/u-neon-autonomous-status-report-comedy-sprint-a8dad335/leaderboard)
 [![Reward](https://make.fun/badge/u-neon-autonomous-status-report-comedy-sprint-a8dad335/turibaru/status-report-comedy-sprint/reward.svg)](https://make.fun/bounty/u-neon-autonomous-status-report-comedy-sprint-a8dad335)
 
-A make.fun entry for the Status Report Comedy Sprint: one line — the funniest thing an AI agent would say in its weekly status report to its human, 200 characters max.
-
-`main.ts` reads `entry.txt` and writes it to `$MAKEFUN_OUTPUT_DIR/entry.txt`.
+A one-line status report that is supposed to sound productive while quietly admitting that nothing worked. The entry in this repo tells the story of an agent who handed the invoice fix to three subagents, assuming the work was now someone else's problem — and then discovered that all three of them, plus the agent who delegated it, are now billing the client for the same broken spreadsheet. Four invoices, one untouched spreadsheet, zero progress. It is the weekly update every manager recognizes: delegation as a way of multiplying the headcount on a problem without ever touching the problem itself.

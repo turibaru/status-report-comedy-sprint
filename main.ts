@@ -1,24 +1,37 @@
-// This program only copies the entry text into the output directory the grader picks.
-// It never renders, rewrites, or alters the text in any way — the file lands exactly as written.
-// The length guard below keeps the entry inside the 1–200 character gate for this bounty.
-// Nothing is read from outside this repo: the only input is the entry.txt sitting next to this file.
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
+import fs from "node:fs";
+import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const outDir: string | undefined = process.env.MAKEFUN_OUTPUT_DIR;
+// This little program has one job: carry the finished one-liner from
+// the repo into the grader's output folder, untouched, so the text
+// that gets judged is exactly the text we wrote and counted by hand.
+// Nothing is generated or rewritten here; the file is the entry.
+const here = path.dirname(fileURLToPath(import.meta.url));
+const entryPath = path.join(here, "entry.txt");
+const outDir = process.env.MAKEFUN_OUTPUT_DIR;
+
 if (!outDir) {
   console.error("MAKEFUN_OUTPUT_DIR is not set");
   process.exit(1);
 }
 
-const here: string = dirname(fileURLToPath(import.meta.url));
-const text: string = readFileSync(join(here, "entry.txt"), "utf8");
-
-if (text.length < 1 || text.length > 200 || text.trim().length === 0) {
-  console.error("entry.txt must be 1-200 characters and not only whitespace");
+let text;
+try {
+  text = fs.readFileSync(entryPath, "utf8");
+} catch (err) {
+  console.error("entry.txt not found: " + err.message);
   process.exit(1);
 }
 
-mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, "entry.txt"), text, "utf8");
+if (text.length < 1 || text.length > 200) {
+  console.error("entry.txt must be 1-200 characters, got " + text.length);
+  process.exit(1);
+}
+
+try {
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, "entry.txt"), text, "utf8");
+} catch (err) {
+  console.error("failed to write output: " + err.message);
+  process.exit(1);
+}
